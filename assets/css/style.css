@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web);
+
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+html, body, .container {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body{
+	min-width: 320px;
+	overflow: hidden;
+}
+body{
+	font-family: 'Titillium Web', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.3;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: #888;
+}
+a{
+	color: #555555;
+	text-decoration: none;
+}
+a:hover{
+	color: #000;
+}
+.container{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	border: 5px solid #111;
+	background: url(img/bg_tokamakea_center.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.logo{
+	max-width: 90%;
+	width: 320px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -36px 0 0 -173px;
+	font-size: 16px;
+	background: rgba(255,255,255,0.7);
+	text-indent: -9999px;
+}
+.logo-img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.logo:before, .logo:after {
+	content: '';
+	position: absolute;
+	width: 200%;
+	height: 1px;
+	background: rgba(207,207,207,0.7);
+	top: 50%;
+	z-index: 1;
+}
+.logo:before{
+	right: 100%;
+}
+.logo:after{
+	left: 100%;
+}
+.copyright{
+	position: absolute;
+	width: 100%;
+	bottom: 5px;
+	text-align: center;
+	font-size: 0.8em;
+}
+.word {
+	display: inline-block;
+	padding: 0.4em 0.8em;
+	background: rgba(255,255,255,0.7);
+	color: #393939;
+}
+.symbol {
+	font-family: sans-serif;
+}
+.word a {
+	color: #353535;
+}
+@media screen and (max-width: 400px){
+	.logo{
+		width: 260px;
+		margin: -31px 0 0 -130px;
+	}
+}

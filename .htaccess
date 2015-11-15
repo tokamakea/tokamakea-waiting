@@ -1,0 +1,59 @@
+# Redirect all users to access the site WITHOUT the www. prefix
+RewriteEngine on
+rewritecond %{http_host} ^www.pgwebdesign.net [nc]
+rewriterule ^(.*)$ http://pgwebdesign.net/$1 [r=301,nc]
+
+# Disable directory listing from this point
+Options -Indexes
+
+# Prevent viewing of .htaccess file
+<Files ~ "^\.ht">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+
+# Error Pages
+ErrorDocument 404 /404.php
+
+## Temporary maintenance page redirect
+#Options +FollowSymlinks
+#RewriteEngine On
+#RewriteBase /
+#RewriteCond %{REQUEST_URI} !/maintenance.html$
+#RewriteRule .* /maintenance.html [R=307,L]
+
+## 301 Redirect of all http requests to a new domain
+#RewriteEngine On
+#RewriteBase /
+#RewriteCond %{HTTP_HOST} !newdomain.com$ [NC]
+#RewriteRule ^(.*)$ http://www.newdomain.com/$1 [L,R=301]
+
+## 301, Permanent single page redirects
+#redirect 301 /oldname.html http://www.domain.com/new-useful-name.html
+#redirect 301 /blog/example.html http://www.domain.com/blog/new-name.html
+
+## Cache Certain file types, saving bandwidth and decreasing load times
+
+## 1 YEAR
+#<FilesMatch "\.(ico|pdf)$">
+#Header set Cache-Control "max-age=29030400, public"
+#</FilesMatch>
+#
+## 1 MONTH
+#<FilesMatch "\.(jpg|jpeg|png|gif|swf|css|js)$">
+#Header set Cache-Control "max-age=2689743, public"
+#</FilesMatch>
+#
+## 2 DAYS
+#<FilesMatch "\.(xml|txt|html|php)$">
+#Header set Cache-Control "max-age=172800, proxy-revalidate"
+#</FilesMatch>
+
+## Force all PDF files to download
+## Requires Apache Header Module - this will work for any file extensions
+#
+#<FilesMatch "\.(?i:pdf)$">
+#  ForceType application/octet-stream
+#  Header set Content-Disposition attachment
+#</FilesMatch>
